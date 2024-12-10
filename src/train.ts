@@ -288,11 +288,11 @@ console.log("TRAIN Area !");
 // Shunday function tuzingki unga integerlardan iborat array pass bolsin va function bizga osha arrayning eng katta qiymatiga tegishli birinchi indexni qaytarsin.
 // MASALAN: getHighestIndex([5, 21, 12, 21, 8]) return qiladi 1 sonini.
 
-function getHighestIndex(numbers) {
-  numbers.forEach((element, index) => {
-    if (element == Math.max(...numbers)) {
-      console.log(element + ":" + index);
-    }
-  });
-}
-getHighestIndex([5, 21, 33, 3, 54]);
+// function getHighestIndex(numbers) {
+//   numbers.forEach((element, index) => {
+//     if (element == Math.max(...numbers)) {
+//       console.log(element + ":" + index);
+//     }
+//   });
+// }
+// getHighestIndex([5, 21, 33, 3, 54]);
