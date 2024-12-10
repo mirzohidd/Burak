@@ -296,3 +296,24 @@ console.log("TRAIN Area !");
 //   });
 // }
 // getHighestIndex([5, 21, 33, 3, 54]);
+
+// TASK H:
+
+// Raqamlardan iborat arrayni argument sifatida qabul qiladigan
+// function tuzing. Ushbu function faqatgina positive sonlarni olib
+// string holatida return qilsin.
+// MASALAN: getPositive([1, -4, 2]) return qiladi "12".
+
+function getPositive(arr: number[]) {
+  let result: string = "";
+  let newArr: number[] = [];
+  for (let index: number = 0; index < arr.length; index++) {
+    const element = arr[index];
+    if (element > 0) {
+      result += `${element}`;
+      // console.log(result);
+    }
+  }
+  console.log("Result:",result);
+}
+getPositive([2, 1, -4, 2, 3]);
