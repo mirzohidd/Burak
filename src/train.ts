@@ -304,16 +304,33 @@ console.log("TRAIN Area !");
 // string holatida return qilsin.
 // MASALAN: getPositive([1, -4, 2]) return qiladi "12".
 
-function getPositive(arr: number[]) {
+// function getPositive(arr: number[]) {
+//   let result: string = "";
+//   let newArr: number[] = [];
+//   for (let index: number = 0; index < arr.length; index++) {
+//     const element = arr[index];
+//     if (element > 0) {
+//       result += `${element}`;
+//       // console.log(result);
+//     }
+//   }
+//   console.log("Result:",result);
+// }
+// getPositive([2, 1, -4, 2, 3]);
+
+// H2-TASK:
+
+// Shunday function tuzing, unga string argument pass bolsin. Function ushbu agrumentdagi digitlarni yangi stringda return qilsin
+// MASALAN: getDigits("m14i1t") return qiladi "141"
+
+function getDigits(word: string) {
   let result: string = "";
-  let newArr: number[] = [];
-  for (let index: number = 0; index < arr.length; index++) {
-    const element = arr[index];
-    if (element > 0) {
-      result += `${element}`;
-      // console.log(result);
+  for (let char of word) {
+    if (Number(char)) {
+      result += char;
     }
   }
-  console.log("Result:",result);
+
+  return result;
 }
-getPositive([2, 1, -4, 2, 3]);
+console.log(getDigits("m14i1t"));
