@@ -341,29 +341,49 @@ console.log(getDigits("m14i1t"));
 // MASALAN: majorityElement([1,2,3,4,5,4,3,4]) return 4
 
 
-function majorityElement(nums: number[]): number {
-  let maxCount = 0;
-  let repeatedElement = nums[0];
+// function majorityElement(nums: number[]): number {
+//   let maxCount = 0;
+//   let repeatedElement = nums[0];
 
-  for (let i = 0; i < nums.length; i++) {
-    let count = 0;
+//   for (let i = 0; i < nums.length; i++) {
+//     let count = 0;
 
-    // Har bir element uchun arrayni boshqatdan ko'rib chiqamiz
-    for (let j = 0; j < nums.length; j++) {
-      if (nums[i] === nums[j]) {
-        count++;
+//     // Har bir element uchun arrayni boshqatdan ko'rib chiqamiz
+//     for (let j = 0; j < nums.length; j++) {
+//       if (nums[i] === nums[j]) {
+//         count++;
+//       }
+//     }
+
+//     // Agar hozirgi elementning takrorlanishi eng ko'p bo'lsa, yangilaymiz
+//     if (count > maxCount) {
+//       maxCount = count;
+//       repeatedElement = nums[i];
+//     }
+//   }
+
+//   return repeatedElement;
+// }
+
+// // Test
+// console.log(majorityElement([1, 2, 3, 4, 5, 4, 3, 4])); // N
+
+
+function findLongestWord(sentence: string): string {
+
+  const words = sentence.split(" ");
+  
+  
+  let longestWord = "";
+  for (const word of words) {
+      if (word.length > longestWord.length) {
+          longestWord = word;
       }
-    }
-
-    // Agar hozirgi elementning takrorlanishi eng ko'p bo'lsa, yangilaymiz
-    if (count > maxCount) {
-      maxCount = count;
-      repeatedElement = nums[i];
-    }
   }
 
-  return repeatedElement;
+  return longestWord;
 }
 
-// Test
-console.log(majorityElement([1, 2, 3, 4, 5, 4, 3, 4])); // N
+
+const result = findLongestWord("I come from Uzbekistan");
+console.log(result); 

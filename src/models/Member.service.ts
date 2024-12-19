@@ -40,7 +40,7 @@ class MemberService {
     }
 
     // const isMatch = input.memberPassword === member.membePassword;
-    const isMatch = await bcrypt.compare(input.memberPassword, member.password);
+    const isMatch = await bcrypt.compare(input.memberPassword, member.memberPassword);
 
     if (!isMatch) {
       throw new Errors(HttpCode.NOT_FOUND, Message.WRONG_PASSWORD);
