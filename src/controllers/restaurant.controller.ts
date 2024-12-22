@@ -11,21 +11,21 @@ restaurantController.goHome = (req: Request, res: Response) => {
   try {
     console.log("gohome");
 
-    res.send("Home Page");
+    res.render("home");
   } catch (err) {
     console.log("Error , go Home", err);
   }
 };
 restaurantController.getSiginup = (req: Request, res: Response) => {
   try {
-    res.send("Sigin up Page");
+    res.render("siginup");
   } catch (err) {
     console.log("Error , getSiginup", err);
   }
 };
 restaurantController.getLogin = (req: Request, res: Response) => {
   try {
-    res.send("Login Page");
+    res.render("login");
   } catch (err) {
     console.log("Error , getLogin", err);
   }
