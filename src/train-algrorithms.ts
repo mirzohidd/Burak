@@ -340,7 +340,6 @@ console.log(getDigits("m14i1t"));
 // Shunday function yozing, u parametridagi array ichida eng kop takrorlangan raqamni topib qaytarsin.
 // MASALAN: majorityElement([1,2,3,4,5,4,3,4]) return 4
 
-
 // function majorityElement(nums: number[]): number {
 //   let maxCount = 0;
 //   let repeatedElement = nums[0];
@@ -368,22 +367,46 @@ console.log(getDigits("m14i1t"));
 // // Test
 // console.log(majorityElement([1, 2, 3, 4, 5, 4, 3, 4])); // N
 
+// function findLongestWord(sentence: string): string {
 
-function findLongestWord(sentence: string): string {
+//   const words = sentence.split(" ");
 
-  const words = sentence.split(" ");
-  
-  
-  let longestWord = "";
-  for (const word of words) {
-      if (word.length > longestWord.length) {
-          longestWord = word;
+//   let longestWord = "";
+
+//   for (const word of words) {
+//
+//       if (word.length > longestWord.length) {
+
+//           longestWord = word;
+//       }
+//   }
+
+//   return longestWord;
+// }
+
+// const result = findLongestWord("I come from Uzbekistan");
+// console.log(result);
+
+// K-TASK:
+
+// Shunday function yozing, u string qabul qilsin va string ichidagi unli harflar sonini qaytarsin.
+// MASALAN: countVowels("string") return 1;
+
+function countVowels(word: string) {
+  const vowels = "aeiouAEIOU";
+  let count = 0;
+  for (const element of word) {
+    // for (let index = 0; index < word.length; index++) {
+    //   const element = word[index];
+
+    // }
+    for (const char of vowels) {
+      if (element == char) {
+        count++;
       }
+    }
   }
-
-  return longestWord;
+  return count;
 }
 
-
-const result = findLongestWord("I come from Uzbekistan");
-console.log(result); 
+console.log(countVowels("string"))
