@@ -12,5 +12,6 @@ routerAdmin
   .get("/signup", restaurantController.getSiginup)
   .post("/signup", restaurantController.processSiginup);
 
-export default routerAdmin;
+routerAdmin.get("/check-me", restaurantController.checkAuthSession);
 
+export default routerAdmin;
