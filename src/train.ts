@@ -20,3 +20,9 @@
     Modern FD       => SPA  =>  React
 
 */ 
+
+/*
+
+    every reques = every join
+    self destroy
+*/ 
