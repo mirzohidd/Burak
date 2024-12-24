@@ -323,17 +323,17 @@ console.log("TRAIN Area !");
 // Shunday function tuzing, unga string argument pass bolsin. Function ushbu agrumentdagi digitlarni yangi stringda return qilsin
 // MASALAN: getDigits("m14i1t") return qiladi "141"
 
-function getDigits(word: string) {
-  let result: string = "";
-  for (let char of word) {
-    if (Number(char)) {
-      result += char;
-    }
-  }
+// function getDigits(word: string) {
+//   let result: string = "";
+//   for (let char of word) {
+//     if (Number(char)) {
+//       result += char;
+//     }
+//   }
 
-  return result;
-}
-console.log(getDigits("m14i1t"));
+//   return result;
+// }
+// console.log(getDigits("m14i1t"));
 
 // I-TASK:
 
@@ -392,21 +392,55 @@ console.log(getDigits("m14i1t"));
 // Shunday function yozing, u string qabul qilsin va string ichidagi unli harflar sonini qaytarsin.
 // MASALAN: countVowels("string") return 1;
 
-function countVowels(word: string) {
-  const vowels = "aeiouAEIOU";
-  let count = 0;
-  for (const element of word) {
-    // for (let index = 0; index < word.length; index++) {
-    //   const element = word[index];
+// function countVowels(word: string) {
+//   const vowels = "aeiouAEIOU";
+//   let count = 0;
+//   for (const element of word) {
+//     // for (let index = 0; index < word.length; index++) {
+//     //   const element = word[index];
 
-    // }
-    for (const char of vowels) {
-      if (element == char) {
-        count++;
-      }
+//     // }
+//     for (const char of vowels) {
+//       if (element == char) {
+//         count++;
+//       }
+//     }
+//   }
+//   return count;
+// }
+
+// console.log(countVowels("string"))
+
+
+
+// L-TASK: 
+
+// Shunday function yozing, u string qabul qilsin va string ichidagi hamma sozlarni chappasiga yozib va sozlar ketma-ketligini buzmasdan stringni qaytarsin.
+// MASALAN: reverseSentence("we like coding") return "ew ekil gnidoc";
+
+
+function reverseSentence(word: string): string {
+  let returnedSentence = "";
+  let result = "";
+
+  
+  const words = word.split(" ");
+
+  for (let singleWord of words) {
+    returnedSentence = "";
+
+   
+    for (let char of singleWord) {
+      returnedSentence = char + returnedSentence;
     }
+
+    result += returnedSentence + " ";
+    
   }
-  return count;
+
+ 
+  return result;
 }
 
-console.log(countVowels("string"))
+// Test qilish
+console.log(reverseSentence("we like coding")); // "ew ekil gnidoc"

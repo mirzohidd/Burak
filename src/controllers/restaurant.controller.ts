@@ -46,6 +46,10 @@ restaurantController.processSiginup = async (
     newMember.memberType = MemberType.RESTAURANT;
     // TODO SESSIONS
     const result = await memberService.processSignup(newMember);
+    req.session.member = result;
+    req.session.save(function () {
+      res.send(result);
+    });
   } catch (err) {
     console.log("Error , getSiginup", err);
     const message =
@@ -67,7 +71,6 @@ restaurantController.processLogin = async (
       result = await memberService.processLogin(input);
     // TODO SESSIONS
     req.session.member = result;
-
     req.session.save(function () {
       res.send(result);
     });
