@@ -27,9 +27,6 @@ app.use(
       maxAge: 1000 * 3600 * 3, // 3 h
     },
     store: store,
-    // Boilerplate options, see:
-    // * https://www.npmjs.com/package/express-session#resave
-    // * https://www.npmjs.com/package/express-session#saveuninitialized
     resave: true,
     saveUninitialized: true,
   })
