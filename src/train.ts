@@ -10,19 +10,32 @@
 
 
 /*
+Request:
+
  Traditional API
  REST API
  GraphQL API
 */ 
 
 /*
+Frontend:
     Traditional FD  => BSSR =>  EJS
     Modern FD       => SPA  =>  React
 
 */ 
 
 /*
+Cookies:
 
     every reques = every join
     self destroy
+*/ 
+
+/*
+    Validation:
+    Frontendt validation
+    Backend validation
+    Database validation
+
+    Pipe validation
 */ 
