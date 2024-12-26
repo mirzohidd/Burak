@@ -1,7 +1,9 @@
 import express, { Request, Response } from "express";
 import restaurantController from "./controllers/restaurant.controller";
+import productController from "./controllers/product.controller";
 const routerAdmin = express.Router();
 
+/**  Restaurant    **/
 routerAdmin.get("/", restaurantController.goHome);
 
 routerAdmin
@@ -9,10 +11,17 @@ routerAdmin
   .post("/login", restaurantController.processLogin);
 
 routerAdmin
-  .get("/signup", restaurantController.getSiginup)
-  .post("/signup", restaurantController.processSiginup);
+  .get("/signup", restaurantController.getSignup)
+  .post("/signup", restaurantController.processSignup);
 
 routerAdmin.get("/logout", restaurantController.logout);
 routerAdmin.get("/check-me", restaurantController.checkAuthSession);
+
+/**  Product    **/
+routerAdmin.get("/product/all", productController.getAllProducts);
+routerAdmin.post("/product/create", productController.createNewProduct);
+routerAdmin.post("/product/:id", productController.updateChoosenProduct);
+
+/**  User    **/
 
 export default routerAdmin;

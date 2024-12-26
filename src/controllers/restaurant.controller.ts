@@ -17,11 +17,11 @@ restaurantController.goHome = (req: Request, res: Response) => {
     console.log("Error , go Home", err);
   }
 };
-restaurantController.getSiginup = (req: Request, res: Response) => {
+restaurantController.getSignup = (req: Request, res: Response) => {
   try {
-    res.render("siginup");
+    res.render("signup");
   } catch (err) {
-    console.log("Error , getSiginup", err);
+    console.log("Error , getSignup", err);
     res.redirect("/admin");
   }
 };
@@ -34,12 +34,12 @@ restaurantController.getLogin = (req: Request, res: Response) => {
   }
 };
 
-restaurantController.processSiginup = async (
+restaurantController.processSignup = async (
   req: AdminRequest,
   res: Response
 ) => {
   try {
-    console.log("proccesLogun");
+    console.log("proccesSignup");
     console.log("body:", req.body);
 
     const newMember: MemberInput = req.body;
@@ -51,7 +51,7 @@ restaurantController.processSiginup = async (
       res.send(result);
     });
   } catch (err) {
-    console.log("Error , getSiginup", err);
+    console.log("Error , getSignup", err);
     const message =
       err instanceof Errors ? err.message : Message.SOMETHING_WENT_WRONG;
     res.send(
@@ -75,7 +75,7 @@ restaurantController.processLogin = async (
       res.send(result);
     });
   } catch (err) {
-    console.log("Error , getSiginup", err);
+    console.log("Error , getSignup", err);
     const message =
       err instanceof Errors ? err.message : Message.SOMETHING_WENT_WRONG;
     res.send(
@@ -91,7 +91,7 @@ restaurantController.logout = async (req: AdminRequest, res: Response) => {
       res.redirect("/admin");
     });
   } catch (err) {
-    console.log("Error , getSiginup", err);
+    console.log("Error , getSignup", err);
     res.redirect("/admin");
   }
 };
@@ -105,7 +105,7 @@ restaurantController.checkAuthSession = async (
       res.send(`<script>alert("${req.session.member.memberNick}")</script>`);
     else res.send(`<script>alert("${Message.NOT_AUTHENTICATED}")</script>`);
   } catch (err) {
-    console.log("Error , getSiginup", err);
+    console.log("Error , getSignup", err);
     res.send(err);
   }
 };

@@ -10,7 +10,7 @@ class MemberService {
     this.memberModel = MemberModel;
   }
   /** SPA  **/
-  public async siginup(input: MemberInput): Promise<Member> {
+  public async signup(input: MemberInput): Promise<Member> {
     const salt = await bcrypt.genSalt();
     input.memberPassword = await bcrypt.hash(input.memberPassword, salt);
 
@@ -19,7 +19,7 @@ class MemberService {
       result.memberPassword = "";
       return result.toJSON();
     } catch (err) {
-      console.error("ERROR,model:siginup", err);
+      console.error("ERROR,model:signup", err);
       throw new Errors(HttpCode.BAD_REQUEST, Message.USED_NICK_PHONE);
     }
   }

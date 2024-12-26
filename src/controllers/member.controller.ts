@@ -8,17 +8,17 @@ import Errors from "../libs/Error";
 
 const memberController: T = {};
 const memberService = new MemberService();
-memberController.siginup = async (req: Request, res: Response) => {
+memberController.signup = async (req: Request, res: Response) => {
   try {
     console.log("proccesLogun");
 
     const input: MemberInput = req.body,
-      result: Member = await memberService.siginup(input);
+      result: Member = await memberService.signup(input);
     // TODO TOKENS
     console.log("body:", req.body);
     res.json({ member: result });
   } catch (err) {
-    console.log("Error , siginup", err);
+    console.log("Error , signup", err);
     if (err instanceof Errors) res.status(err.code).json(err);
     else res.status(Errors.standard.code).json(Errors.standard);
     // res.json({err});
@@ -34,7 +34,7 @@ memberController.login = async (req: Request, res: Response) => {
     
     res.json({ member: result });
   } catch (err) {
-    console.log("Error , siginup", err);
+    console.log("Error , signup", err);
     if (err instanceof Errors) res.status(err.code).json(err);
     else res.status(Errors.standard.code).json(Errors.standard);
     // res.json({err});
