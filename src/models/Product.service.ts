@@ -29,7 +29,15 @@ class ProductService {
 
     if (!result) throw new Errors(HttpCode.NOT_MODIFIED, Message.UPDATE_FAILED);
 
-    
+    return result;
+  }
+  public async getAllProducts(): Promise<Product[]> {
+    // string = ObjectId
+   
+    const result = await this.productModel.find().exec();
+
+    if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
+
     return result;
   }
 }
