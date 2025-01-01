@@ -11,7 +11,7 @@ export interface Product {
   productColletion: ProductCollection;
   productName: string;
   productPrice: number;
-  productLetCount: number;
+  productLeftCount: number;
   productSize: ProductSize;
   productVolume: number;
   productDesc?: string;
@@ -24,7 +24,7 @@ export interface ProductInput {
   productColletion: ProductCollection;
   productName: string;
   productPrice: number;
-  productLetCount: number;
+  productLeftCount: number;
   productSize?: ProductSize;
   productVolume?: number;
   productDesc?: string;
@@ -38,7 +38,7 @@ export interface ProductUpdateInput {
   productColletion?: ProductCollection;
   productName?: string;
   productPrice?: number;
-  productLetCount?: number;
+  productLeftCount?: number;
   productSize?: ProductSize;
   productVolume?: number;
   productDesc?: string;

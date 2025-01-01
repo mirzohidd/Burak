@@ -28,7 +28,7 @@ const productSchema = new Schema(
       type: Number,
       required: true,
     },
-    productLetCount: {
+    productLeftCount: {
       type: Number,
       required: true,
     },
