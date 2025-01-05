@@ -459,22 +459,38 @@ console.log("TRAIN Area !");
 // Shunday function yozing, u string qabul qilsin va string palindrom yani togri oqilganda ham, orqasidan oqilganda ham bir hil oqiladigan soz ekanligini aniqlab boolean qiymat qaytarsin.
 // MASALAN: palindromCheck("dad") return true;  palindromCheck("son") return false;
 
-function palindromCheck(word: string): boolean {
-    let reversedWord = "";
-  
-    
-    for (let i = word.length - 1; i >= 0; i--) {
-      reversedWord += word[i];
+// function palindromCheck(word: string): boolean {
+//     let reversedWord = "";
+
+//     for (let i = word.length - 1; i >= 0; i--) {
+//       reversedWord += word[i];
+//     }
+
+//     console.log(`Original word: ${word}`);
+//     console.log(`Reversed word: ${reversedWord}`);
+
+//     return word === reversedWord;
+//   }
+
+//   console.log(palindromCheck("son")); // false
+//   console.log(palindromCheck("racecar")); // true
+
+// O-TASK:
+
+// Shunday function yozing, u har xil valuelardan iborat array qabul qilsin va array ichidagi sonlar yigindisini hisoblab chiqqan javobni qaytarsin.
+// MASALAN: calculateSumOfNumbers([10, "10", {son: 10}, true, 35]) return 45
+
+function calculateSumOfNumbers(numbers: any[]) {
+  let result = 0;
+
+  for (let index = 0; index < numbers.length; index++) {
+    let element = numbers[index];
+
+    if (typeof element == "number") {
+      result += element;
     }
-  
-    console.log(`Original word: ${word}`);
-    console.log(`Reversed word: ${reversedWord}`);
-  
-   
-    return word === reversedWord;
   }
-  
-  
-  console.log(palindromCheck("son")); // false
-  console.log(palindromCheck("racecar")); // true
-  
+
+  console.log(result);
+}
+calculateSumOfNumbers([10, "10", { son: 10 }, true, 35]);
