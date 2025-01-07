@@ -60,7 +60,7 @@ restaurantController.processSignup = async (
     const message =
       err instanceof Errors ? err.message : Message.SOMETHING_WENT_WRONG;
     res.send(
-      `<script>alert("${message}");window.location.replace('admin/signup')</script>`
+      `<script>alert("${message}");window.location.replace('/admin/signup')</script>`
     );
   }
 };
@@ -70,8 +70,11 @@ restaurantController.processLogin = async (
   res: Response
 ) => {
   try {
-    console.log("proccesLogun");
+    console.log("proccesLogin");
     console.log("body:", req.body);
+
+    // throw new Error("FORCED QUICK STOP")
+
     const input: LoginInput = req.body,
       result = await memberService.processLogin(input);
     // TODO SESSIONS
@@ -80,13 +83,13 @@ restaurantController.processLogin = async (
       res.redirect("/admin/product/all");
     });
   } catch (err) {
-    console.log("Error , getSignup", err);
+    console.log("Error , proccesLogin", err);
     const message =
       err instanceof Errors ? err.message : Message.SOMETHING_WENT_WRONG;
     res.send(
-      `<script>alert("${message}");window.location.replace('admin/login')</script>`
+      `<script>alert("${message}");window.location.replace('/admin/login')</script>`
     );
-    res.send(err);
+    
   }
 };
 restaurantController.logout = async (req: AdminRequest, res: Response) => {
@@ -96,7 +99,7 @@ restaurantController.logout = async (req: AdminRequest, res: Response) => {
       res.redirect("/admin");
     });
   } catch (err) {
-    console.log("Error , getSignup", err);
+    console.log("Error , logout", err);
     res.redirect("/admin");
   }
 };

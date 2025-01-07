@@ -12,7 +12,7 @@
 /*
 Request:
 
- Traditional API
+ Traditional API (form POST)
  REST API
  GraphQL API
 */ 
