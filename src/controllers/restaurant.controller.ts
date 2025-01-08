@@ -107,7 +107,7 @@ restaurantController.getUsers = async (req: Request, res: Response) => {
   try {
     console.log("getUsers");
     const result = await memberService.getUsers();
-
+    console.log("result",result)
     res.render("users", { user: result });
   } catch (err) {
     console.log("Error , getUsers", err);
