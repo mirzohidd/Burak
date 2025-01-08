@@ -17,7 +17,7 @@ productController.getAllProducts = async (req: Request, res: Response) => {
     console.log("getAllProducts");
     const data = await productService.getAllProducts();
 
-    console.log("data", data);
+
     res.render("products",{products:data});
   } catch (err) {
     console.log("Error , getAllProducts", err);
@@ -33,7 +33,7 @@ productController.createNewProduct = async (
 ) => {
   try {
     console.log("createNewProduct");
-
+    console.log("req:body",req.body)
     if (!req.files?.length)
       throw new Errors(HttpCode.INTERNAL_SERVER_ERROR, Message.CREATE_FAILED);
 
@@ -44,13 +44,13 @@ productController.createNewProduct = async (
 
     await productService.createNewProduct(data);
     res.send(
-      `<script>alert("Succesful creation");window.location.replace('admin/product/all')</script>`
+      `<script>alert("Succesful creation");window.location.replace('/admin/product/all')</script>`
     );
   } catch (err) {
     console.log("Error , createNewProduct", err);
     const message = err instanceof Errors ? err.message : Message.CREATE_FAILED;
     res.send(
-      `<script>alert("${message}");window.location.replace('admin/product/all')</script>`
+      `<script>alert("${message}");window.location.replace('/admin/product/all')</script>`
     );
   }
 };
