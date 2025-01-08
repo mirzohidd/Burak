@@ -23,10 +23,8 @@ $(function () {
   });
 
   $(".new-product-status").on("change", async function (e) {
-    const id = e.target.id;
-    const productStatus = $(`#${id}.new-product-status`).val();
-    console.log("id", id);
-    console.log("productStatus", productStatus);
+    const id = e.target.id,
+      productStatus = $(`#${id}.new-product-status`).val();
 
     try {
       const response = await axios.post(`/admin/product/${id}`, {
@@ -67,12 +65,10 @@ function validateForm() {
 }
 
 function previewFileHandler(input, order) {
-  const imgClasname = input.className;
-  console.log("input:", input);
-  console.log("imgClassname", imgClasname);
-  const file = $(`.${imgClasname}`).get([0]).files[0];
-  const fileType = file["type"];
-  const validateImageType = ["image/jpg", "image/jpeg", "image/png"];
+  const imgClasname = input.className,
+    file = $(`.${imgClasname}`).get([0]).files[0],
+    fileType = file["type"],
+    validateImageType = ["image/jpg", "image/jpeg", "image/png"];
   if (!validateImageType.includes(fileType)) {
     alert("Please insert only jpeg ,jpg and png!");
   } else {

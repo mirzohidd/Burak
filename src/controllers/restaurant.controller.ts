@@ -41,7 +41,7 @@ restaurantController.processSignup = async (
   try {
     console.log("proccesSignup");
     const file = req.file;
-    console.log("file:", file);
+    
 
     if (!file)
       throw new Errors(HttpCode.BAD_REQUEST, Message.SOMETHING_WENT_WRONG);
@@ -71,7 +71,6 @@ restaurantController.processLogin = async (
 ) => {
   try {
     console.log("proccesLogin");
-    console.log("body:", req.body);
 
     // throw new Error("FORCED QUICK STOP")
 
@@ -107,7 +106,8 @@ restaurantController.getUsers = async (req: Request, res: Response) => {
   try {
     console.log("getUsers");
     const result = await memberService.getUsers();
-    console.log("result",result)
+    
+    
     res.render("users", { user: result });
   } catch (err) {
     console.log("Error , getUsers", err);
