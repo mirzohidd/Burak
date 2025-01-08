@@ -2,8 +2,8 @@ console.log("TRAIN Area !");
 
 // A-TASK:
 
-// Shunday 2 parametrli function tuzing, hamda birinchi parametrdagi letterni ikkinchi parametrdagi sozdan qatnashga sonini return qilishi kerak boladi.
-// MASALAN countLetter("e", "engineer") 3ni return qiladi.
+// Create a function with 2 parameters that returns the number of times the first parameter's letter appears in the second parameter's word.
+// EXAMPLE: countLetter("e", "engineer") returns 3.
 
 // =============
 
@@ -24,117 +24,10 @@ console.log("TRAIN Area !");
 
 // countLetter("g", "engineer");
 
-// =============
+// B-TASK
 
-// console.log("Jack Ma maslahatlari");
-// const list = [
-//   "yaxshi talaba boling", // 0-20
-//   "togri boshliq tanlang va koproq hato qiling", // 20-30
-//   "uzingizga ishingizni boshlang", // 30-40
-//   "siz kuchli bolgan narsalarni qiling", // 40-50
-//   "yoshlarga investitsiya qiling", // 50-60
-//   "endi dam oling, foydasi yoq endi", // 60
-// ];
-
-// CallBack function
-
-// function maslahatBering(a,callBack){
-//     if(typeof a!=='number') callBack("Insert a number",null);
-//     else if(a <= 20) callBack(null,list[0]);
-//     else if(a > 20 && a <= 30) callBack(null,list[1]);
-//     else if(a > 30 && a <= 40) callBack(null,list[2]);
-//     else if(a > 40 && a <= 50) callBack(null,list[3]);
-//     else if(a > 50 && a <= 60) callBack(null,list[4]);
-//     else{
-//         setTimeout(function(){
-//             callBack(null,list[5]);
-
-//         },5000)
-//     }
-
-// }
-// console.log("passed here 0");
-// maslahatBering(65,(err,data)=>{
-//     if(err) console.log("ERROR",err);
-//     console.log('javob:',data)
-// })
-// console.log("passed here 1");
-
-// Async function
-
-// async function maslahatBering(a) {
-//   if (typeof a !== "number") throw new Error("Insert a number");
-//   else if (a <= 20) return list[0];
-//   else if (a > 20 && a <= 30) return list[1];
-//   else if (a > 30 && a <= 40) return list[2];
-//   else if (a > 40 && a <= 50) return list[3];
-//   else if (a > 50 && a <= 60) return list[4];
-//   else {
-//     return new Promise((resolve,reject) => {
-//         // setInterval(() => {
-//         // resolve(list[5])
-//         // }, 1000);
-//         setTimeout(() => {
-//         resolve(list[5])
-//         }, 5000);
-
-//     });
-
-//   }
-
-// }
-
-// then/catch
-
-// console.log("passed here 0");
-
-// maslahatBering(25)
-//   .then((data) => {
-//     console.log("javob", data);
-//   })
-//   .catch((err) => {
-//     console.log("ERROR:", err);
-//   });
-// console.log("passed here 1");
-
-// async/await
-
-// async function run(){
-//     let javob = await maslahatBering(65);
-//     console.log(javob);
-//     //  javob = await maslahatBering(65);
-//     // console.log(javob);
-//     //  javob = await maslahatBering(35);
-//     // console.log(javob);
-// }
-// run()
-
-// // DEFINE
-// function qoldiqBolish(a, b, callback) {
-//   if (b === 0) {
-//     callback("Mahraj nolga teng bolmasin!", null);
-//   } else if (a === 0){
-//     callback("Surat nolga teng bolmasin!", null);
-//   } else {
-//     const c = a % b;
-//     callback(null, c);
-//   }
-// }
-
-// // CALL
-// qoldiqBolish(10, 3, (err, data) => {
-//   if (err) {
-//     console.log("ERROR:", err);
-//   } else {
-//     console.log("data:", data);
-//     console.log("ANY LOGIC");
-//   }
-// });
-
-// B TASK
-
-// Shunday function tuzing, u 1ta string parametrga ega bolsin, hamda osha stringda qatnashgan raqamlarni sonini bizga return qilsin.
-// MASALAN countDigits("ad2a54y79wet0sfgb9") 7ni return qiladi.
+// Create a function with 1 string parameter that returns the count of digits in that string.
+// EXAMPLE: countDigits("ad2a54y79wet0sfgb9") returns 7.
 
 // let counterNumber = 0;
 // function numberReturner(word) {
@@ -150,10 +43,10 @@ console.log("TRAIN Area !");
 // }
 // numberReturner("111dddenjsdjnasjnda5757676");
 
-// C TASK
+// C-TASK
 
-// Shunday function tuzing, u 2ta string parametr ega bolsin, hamda agar har ikkala string bir hil harflardan iborat bolsa true aks holda false qaytarsin
-// MASALAN checkContent("mitgroup", "gmtiprou") return qiladi true;
+// Create a function with 2 string parameters that returns true if both strings contain the same letters, otherwise false.
+// EXAMPLE: checkContent("mitgroup", "gmtiprou") returns true.
 
 // function checkContent(word1, word2) {
 //   let newWord1 = [...word1];
@@ -183,71 +76,75 @@ console.log("TRAIN Area !");
 
 // checkContent("mitgroup", "gmtiprou");
 
+// D-TASK:
+
+// Create a class named Shop, and pass 3 types of products to its constructor, and the class should have 3 methods: one for stock, one for selling, and one for receiving. Each method should also log when it is executed. For example: const shop = new Shop(4, 5, 2); shop.stock() should return "Currently at 20:40, there are 4 breads, 5 lagmans, and 2 colas!" shop.sell('bread', 3) & shop.receive('cola', 4) & shop.stock() should return "Currently at 20:50, there is 1 bread, 5 lagmans, and 6 colas!
+
 // class Shop {
-//   constructor(non, lagmon, cola) {
+//   constructor(bread, lagman, cola) {
 //     this.products = {
-//       non: non,
-//       lagmon: lagmon,
+//       bread: bread,
+//       lagman: lagman,
 //       cola: cola,
 //     };
 //   }
 
-//   qoldiq() {
+//   stock() {
 //     const currentTime = new Date().toLocaleTimeString();
-//     const { non, lagmon, cola } = this.products;
+//     const { bread, lagman, cola } = this.products;
 //     console.log(
-//       `Hozir ${currentTime}da ${non}ta non, ${lagmon}ta lagmon va ${cola}ta cola mavjud!`
+//       `Currently at ${currentTime}, there are ${bread} breads, ${lagman} lagmans, and ${cola} colas!`
 //     );
 //     return this.products;
 //   }
 
-//   sotish(mahsulot, miqdor) {
+//   sell(product, quantity) {
 //     const currentTime = new Date().toLocaleTimeString();
 
-//     if (this.products[mahsulot] === undefined) {
-//       console.log(`Bunday mahsulot mavjud emas: ${mahsulot}`);
+//     if (this.products[product] === undefined) {
+//       console.log(`This product does not exist: ${product}`);
 //       return;
 //     }
 
-//     if (this.products[mahsulot] < miqdor) {
+//     if (this.products[product] < quantity) {
 //       console.log(
-//         `Hozir ${currentTime}da ${mahsulot} yetarli emas, bor-yo‘g‘i ${this.products[mahsulot]}ta mavjud.`
+//         `Currently at ${currentTime}, there isn't enough ${product}, only ${this.products[product]} available.`
 //       );
 //       return;
 //     }
 
-//     this.products[mahsulot] -= miqdor;
+//     this.products[product] -= quantity;
 //     console.log(
-//       `Hozir ${currentTime}da ${miqdor}ta ${mahsulot} sotildi. Hozirda ${this.products[mahsulot]}ta qoldi.`
+//       `Currently at ${currentTime}, ${quantity} ${product} sold. Now, there are ${this.products[product]} left.`
 //     );
 //   }
 
-//   qabul(mahsulot, miqdor) {
+//   receive(product, quantity) {
 //     const currentTime = new Date().toLocaleTimeString();
 
-//     if (this.products[mahsulot] === undefined) {
-//       console.log(`Bunday mahsulot mavjud emas: ${mahsulot}`);
+//     if (this.products[product] === undefined) {
+//       console.log(`This product does not exist: ${product}`);
 //       return;
 //     }
 
-//     this.products[mahsulot] += miqdor;
+//     this.products[product] += quantity;
 //     console.log(
-//       `Hozir ${currentTime}da ${miqdor}ta ${mahsulot} qabul qilindi. Hozirda ${this.products[mahsulot]}ta mavjud.`
+//       `Currently at ${currentTime}, ${quantity} ${product} received. Now, there are ${this.products[product]} left.`
 //     );
 //   }
 // }
 
 // const shop = new Shop(4, 5, 2);
 
-// shop.qoldiq();
-// shop.sotish("non", 3);
-// shop.qabul("cola", 4);
-// shop.qoldiq();
+// shop.stock();
+// shop.sell("bread", 3);
+// shop.receive("cola", 4);
+// shop.stock();
 
 // E-TASK:
 
-// Shunday function tuzing, u bitta string argumentni qabul qilib osha stringni teskari qilib return qilsin.
-// MASALAN: getReverse("hello") return qilsin "olleh"
+// Create a function that takes a single string argument and returns the reversed version of the string.
+// EXAMPLE: getReverse("hello") returns "olleh".
 
 // function getReverse(word) {
 //   let reversedWord = "";
@@ -261,8 +158,8 @@ console.log("TRAIN Area !");
 
 // F-TASK:
 
-// Shunday findDoublers function tuzing, unga faqat bitta string argument pass bolib, agar stringda bir hil harf qatnashgan bolsa true, qatnashmasa false qaytarishi kerak.
-// MASALAN: getReverse("hello") return true
+// Create a function called findDoublers that takes a single string argument and returns true if the string contains duplicate letters, otherwise false.
+// EXAMPLE: findDoublers("hello") returns true.
 
 // function findDoublers(str) {
 //   const charCount = [];
@@ -480,17 +377,33 @@ console.log("TRAIN Area !");
 // Shunday function yozing, u har xil valuelardan iborat array qabul qilsin va array ichidagi sonlar yigindisini hisoblab chiqqan javobni qaytarsin.
 // MASALAN: calculateSumOfNumbers([10, "10", {son: 10}, true, 35]) return 45
 
-function calculateSumOfNumbers(numbers: any[]) {
-  let result = 0;
+// function calculateSumOfNumbers(numbers: any[]) {
+//   let result = 0;
 
-  for (let index = 0; index < numbers.length; index++) {
-    let element = numbers[index];
+//   for (let index = 0; index < numbers.length; index++) {
+//     let element = numbers[index];
 
-    if (typeof element == "number") {
-      result += element;
-    }
-  }
+//     if (typeof element == "number") {
+//       result += element;
+//     }
+//   }
 
-  console.log(result);
+//   console.log(result);
+// }
+// calculateSumOfNumbers([10, "10", { son: 10 }, true, 35]);
+
+// P-TASK:
+
+// Shunday function yozing, u object qabul qilsin va arrayni object arrayga otkazib arrayni qaytarsin qaytarsin.
+// MASALAN: objectToArray( {a: 10, b: 20}) return [['a', 10], ['b', 20]]
+
+function objectToArray(objectBox: any) {
+  let obj = Object.entries(objectBox);
+  let result: any = [];
+  obj.map((value, index) => {
+    result.push(value);
+  });
+  return result;
 }
-calculateSumOfNumbers([10, "10", { son: 10 }, true, 35]);
+
+console.log(objectToArray({ a: 10, b: 20 }));
