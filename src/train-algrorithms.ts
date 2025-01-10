@@ -397,13 +397,30 @@ console.log("TRAIN Area !");
 // Shunday function yozing, u object qabul qilsin va arrayni object arrayga otkazib arrayni qaytarsin qaytarsin.
 // MASALAN: objectToArray( {a: 10, b: 20}) return [['a', 10], ['b', 20]]
 
-function objectToArray(objectBox: any) {
-  let obj = Object.entries(objectBox);
-  let result: any = [];
-  obj.map((value, index) => {
-    result.push(value);
-  });
-  return result;
-}
+// function objectToArray(objectBox: any) {
+//   let obj = Object.entries(objectBox);
+//   let result: any = [];
+//   obj.map((value, index) => {
+//     result.push(value);
+//   });
+//   return result;
+// }
 
-console.log(objectToArray({ a: 10, b: 20 }));
+// console.log(objectToArray({ a: 10, b: 20 }));
+
+// Q-TASK:
+
+// Shunday function yozing, u 2 ta parametrgga ega bolib birinchisi object, ikkinchisi string. Agar string parametr objectni propertysi bolsa true bolmasa false qaytarsin.
+// MASALAN: hasProperty({name: "BMW", model: "M3"}, "model") return true; hasProperty({name: "BMW", model: "M3"}, "year") return false
+
+function hasProperty(objectBox: object, prop: string) {
+  let obj = Object.keys(objectBox);
+  if (obj.includes(prop)) {
+    console.log("true");
+    return true;
+  } else {
+    console.log("false");
+    return false;
+  }
+}
+hasProperty({ name: "BMW", model: "M3" }, "name");
