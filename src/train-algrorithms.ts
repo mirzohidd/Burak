@@ -413,14 +413,36 @@ console.log("TRAIN Area !");
 // Shunday function yozing, u 2 ta parametrgga ega bolib birinchisi object, ikkinchisi string. Agar string parametr objectni propertysi bolsa true bolmasa false qaytarsin.
 // MASALAN: hasProperty({name: "BMW", model: "M3"}, "model") return true; hasProperty({name: "BMW", model: "M3"}, "year") return false
 
-function hasProperty(objectBox: object, prop: string) {
-  let obj = Object.keys(objectBox);
-  if (obj.includes(prop)) {
-    console.log("true");
-    return true;
-  } else {
-    console.log("false");
-    return false;
-  }
-}
-hasProperty({ name: "BMW", model: "M3" }, "name");
+// function hasProperty(objectBox: object, prop: string) {
+//   let obj = Object.keys(objectBox);
+//   if (obj.includes(prop)) {
+//     console.log("true");
+//     return true;
+//   } else {
+//     console.log("false");
+//     return false;
+//   }
+// }
+// hasProperty({ name: "BMW", model: "M3" }, "name");
+
+// TASK R
+
+// Shunday function yozing, u string parametrga ega bo'lsin.
+// Agar argument sifatida berilayotgan string, "1 + 2" bo'lsa,
+// string ichidagi sonlarin yig'indisni hisoblab, number holatida qaytarsin
+
+// MASALAN: calculate("1 + 3"); return 4;
+// 1 + 3 = 4, shu sababli 4 natijani qaytarmoqda.
+
+// function calculate(stringNumbers: string) {
+//   let numbers = [...stringNumbers];
+//   let result = 0;
+
+//   numbers.forEach(function (number) {
+//     if (Number(number)) {
+//       result += Number(number);
+//     }
+//   });
+//   console.log(result);
+// }
+// calculate("1+2+4");
