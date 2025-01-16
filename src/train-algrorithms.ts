@@ -446,3 +446,23 @@ console.log("TRAIN Area !");
 //   console.log(result);
 // }
 // calculate("1+2+4");
+
+function missingNumber(nums: number[]): number {
+  const n = nums.length;
+  let expectedSum = 0;
+  let actualSum = 0;
+
+  for (let i = 0; i <= n; i++) {
+    expectedSum += i;
+  }
+
+  nums.forEach((num) => {
+    actualSum += num;
+  });
+
+  // Yo'qolgan sonni qaytarish
+  return expectedSum - actualSum;
+}
+
+// Masalan:
+console.log(missingNumber([5, 3, 2, 1, 0]));
