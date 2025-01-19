@@ -447,22 +447,52 @@ console.log("TRAIN Area !");
 // }
 // calculate("1+2+4");
 
-function missingNumber(nums: number[]): number {
-  const n = nums.length;
-  let expectedSum = 0;
-  let actualSum = 0;
+// S-TASK:
 
-  for (let i = 0; i <= n; i++) {
-    expectedSum += i;
+// Shunday function yozing, u numberlardan tashkil topgan array qabul qilsin va osha numberlar orasidagi tushib qolgan sonni topib uni return qilsin
+// MASALAN: missingNumber([3, 0, 1]) return 2
+
+// function missingNumber(nums: number[]): number {
+//   const n = nums.length;
+//   let expectedSum = 0;
+//   let actualSum = 0;
+
+//   for (let i = 0; i <= n; i++) {
+//     expectedSum += i;
+//   }
+
+//   nums.forEach((num) => {
+//     actualSum += num;
+//   });
+
+//   // Yo'qolgan sonni qaytarish
+//   return expectedSum - actualSum;
+// }
+
+// // Masalan:
+// console.log(missingNumber([5, 3, 2, 1, 0]));
+
+// TASK T
+
+// Shunday function tuzing, u sonlardan tashkil topgan 2'ta array qabul qilsin.
+// Va ikkala arraydagi sonlarni tartiblab bir arrayda qaytarsin.
+
+// MASALAN: mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]); return [0, 3, 4, 4, 6, 30, 31];
+
+// Yuqoridagi misolda, ikkala arrayni birlashtirib, tartib raqam bo'yicha tartiblab qaytarmoqda.
+
+function mergeSortedArrays(arr1: number[], arr2: number[]) {
+  let resultArr = arr1.concat(arr2);
+  let newResARr: number[] = [];
+  for (let index = 0; index < resultArr.length; index++) {
+    // console.log(resultArr[index]);
+    if (resultArr[index] < resultArr[index + 1]) {
+      console.log(resultArr[index ]);
+
+      // newResARr.push(resultArr[index]);
+    }
   }
-
-  nums.forEach((num) => {
-    actualSum += num;
-  });
-
-  // Yo'qolgan sonni qaytarish
-  return expectedSum - actualSum;
+  console.log(newResARr);
 }
 
-// Masalan:
-console.log(missingNumber([5, 3, 2, 1, 0]));
+mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]);
