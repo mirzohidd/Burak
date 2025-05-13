@@ -33,7 +33,7 @@ f840927 feat:getProduct businesslogic
 782ea39 feat:create View Schema Sercice Models
 d9c3575 feat:getProduct Rest Api
 edcf491 feat:develop getProducts Rest Api
-673bb69 feat:develop getRestaurant rest Api
+673bb69 feat:develop getStore rest Api
 8351be5 feat:develop getTopUsers rest Api
 1ed430b MIT X TASK
 46aaaa2 feat:develop updateMember business logic
@@ -69,8 +69,8 @@ a5db05e feat:getUsers business logic
 f5d8ef1 feat:N-task
 9575c82 fix:getAllProducts api and passing data
 54be222 fix: modify updateChosenProduct business logic
-74651b6 feat:createNewProduct business logic by restaurant member
-27a498e fix:modify restaurant controller processSignup and processLogin
+74651b6 feat:createNewProduct business logic by Store member
+27a498e fix:modify Store controller processSignup and processLogin
 2fb7ec1 feat:M TASK
 f0caa73 feat: configuration product Schema model
 1c9a56c feat: upload files into server via multer

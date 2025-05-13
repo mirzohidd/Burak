@@ -49,7 +49,7 @@ function validateSignupForm() {
     : null;
 
   if (!memberImage) {
-    alert("Please insert restaurant image !");
+    alert("Please insert Store image !");
     return false;
   }
 }

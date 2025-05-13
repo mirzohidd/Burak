@@ -7,7 +7,7 @@ import orderController from "./controllers/order.controller";
 const router = express.Router();
 
 /** Member **/
-router.get("/member/restaurant", memberController.getRestaurant);
+router.get("/member/Store", memberController.getStore);
 router.post("/member/login", memberController.login);
 router.post("/member/signup", memberController.signup);
 router.post(

@@ -54,7 +54,7 @@ adminController.processSignup = async (
 
     const newMember: MemberInput = req.body;
     newMember.memberImage = file?.path.replace(/\\/g, "/");
-    newMember.memberType = MemberType.RESTAURANT;
+    newMember.memberType = MemberType.STORE;
     // TODO SESSIONS
     const result = await memberService.processSignup(newMember);
     req.session.member = result;
@@ -148,12 +148,12 @@ adminController.checkAuthSession = async (
   }
 };
 
-adminController.verifyRestaurant = (
+adminController.verifyStore = (
   req: AdminRequest,
   res: Response,
   next: NextFunction
 ) => {
-  if (req.session?.member?.memberType === MemberType.RESTAURANT) {
+  if (req.session?.member?.memberType === MemberType.STORE) {
     req.member = req.session.member;
     next();
   } else {

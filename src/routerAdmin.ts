@@ -4,7 +4,7 @@ import productController from "./controllers/product.controller";
 import makeUploader from "./libs/utils/uploader";
 const routerAdmin = express.Router();
 
-/**  Restaurant    **/
+/**  Store    **/
 routerAdmin.get("/", adminController.goHome);
 
 routerAdmin
@@ -25,18 +25,18 @@ routerAdmin.get("/check-me", adminController.checkAuthSession);
 /**  Product    **/
 routerAdmin.get(
   "/product/all",
-  adminController.verifyRestaurant,
+  adminController.verifyStore,
   productController.getAllProducts
 );
 routerAdmin.post(
   "/product/create",
-  adminController.verifyRestaurant,
+  adminController.verifyStore,
   makeUploader("products").array("productImages", 5),
   productController.createNewProduct
 );
 routerAdmin.post(
   "/product/:id",
-  adminController.verifyRestaurant,
+  adminController.verifyStore,
   productController.updateChoosenProduct
 );
 
@@ -44,18 +44,18 @@ routerAdmin.post(
 
 routerAdmin.get(
   "/user/all",
-  adminController.verifyRestaurant,
+  adminController.verifyStore,
   adminController.getUsers
 );
 routerAdmin.post(
   "/user/edit",
-  adminController.verifyRestaurant,
+  adminController.verifyStore,
   adminController.updateChoosenUser
 );
 
 routerAdmin.get(
   "/main",
-  adminController.verifyRestaurant,
+  adminController.verifyStore,
   adminController.getMain
 );
 
