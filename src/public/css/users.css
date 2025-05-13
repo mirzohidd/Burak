@@ -1,0 +1,50 @@
+
+/* User Cell */
+.user-cell {
+  display: flex;
+  align-items: center;
+}
+
+.user-cell img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+/* Actions */
+.actions {
+  display: flex;
+  gap: 5px;
+}
+
+/* Status */
+.status {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.status.active {
+  background-color: rgba(40, 167, 69, 0.1);
+  color: var(--success);
+}
+
+.status.inactive {
+  background-color: rgba(108, 117, 125, 0.1);
+  color: var(--text-light);
+}
+
+.status.blocked {
+  background-color: rgba(220, 53, 69, 0.1);
+  color: var(--danger);
+}
+
+/* Checkbox */
+.select-all, .select-row {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}

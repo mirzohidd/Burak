@@ -1,0 +1,103 @@
+91dd44e fix:modify getALlProducts API & EJS template
+357e11b feat:ZU-TASK:
+bc241ce feat:ZT-task
+86b847a ZS-task
+bf616f4 feat:ZR-task
+5223eea feat:ZQ-task
+e000971 ZP-MIT task
+78b1f5d MIT TASK ZO
+16ab3f7 MIT TASK ZN
+8814870 ZM-task
+9db3dc7 feat:ZL-TASK
+48bdbcb ZK-TASK
+d51cfde feat:MIT ZJ TASK
+adac68c feat:MIT ZI TASK
+33c02cb feat:MIT zh-task
+5f0f129 feat:ZG-TASK
+ec22d80 fix:correct updateOrder business logic
+582dc42 feat:ZF-task
+c7e61b2 feat:ZE-TASK
+86dd28e fix:modify ChosenProductc component logic
+aabfdb0 feat:ZD-TASK
+9ef43f7 feat:CORS integration
+4747f63 feat:ZC-TASK
+cf40d34 feat:ZA-task
+2a2794d feat:Z-task
+43820db feat:develop updateOrder REST  API
+81da0f6 feat: develop getMyOrders Rest API:
+e7bd0e2 feat:Fix create order Rest Api
+c3449f4 feat:develop createOrder Rest Api
+40af760 feat:create order related Schema Models
+2d7e7e2 fix:LASt errors
+f840927 feat:getProduct businesslogic
+782ea39 feat:create View Schema Sercice Models
+d9c3575 feat:getProduct Rest Api
+edcf491 feat:develop getProducts Rest Api
+673bb69 feat:develop getRestaurant rest Api
+8351be5 feat:develop getTopUsers rest Api
+1ed430b MIT X TASK
+46aaaa2 feat:develop updateMember business logic
+9f35be0 feat:MIT W TASK
+25fe683 fix:modify getMemberDetail business logic
+7b7cb7f feat:create middleware methods and develop logout methods
+78daecb feat:develop verify user credetions
+b5a7e03 feat:develop authentication with cookies
+f0ed3f0 feat:develop token via jwt
+8dd5734 MIT TASK V
+c2e2ccb feat:U TASK
+a477dfa feat:MITTASK T
+1adc9c1 feat:MIT-s task
+b5ac404 feat:MIT R task
+078617b feat:Q-task
+b4ce0fe feat:O-TASK
+46037b9 fix admin projectr refactoring
+a53fd3b fix:modify spa login api process
+d11998e frontend choosen user update
+5802ff1 fix:users page render real data
+46fdb14 feat:update choosen product
+2ae7a8a feat:create new product frontend
+d6b1da5 fix: modify products page based on product data
+bdf9624 feat:image validation and preview
+19a221d feat:signup process front validation
+0e36752 fix:modify header
+d14a507 fix:correct business login logic
+74fb723 feat:O-task
+c02c937 fix admin publishing
+8e196b4 feat:UpdateChoosen user
+a5db05e feat:getUsers business logic
+034a4ef fix:ProductLeft mistake
+f5d8ef1 feat:N-task
+9575c82 fix:getAllProducts api and passing data
+54be222 fix: modify updateChosenProduct business logic
+74651b6 feat:createNewProduct business logic by restaurant member
+27a498e fix:modify restaurant controller processSignup and processLogin
+2fb7ec1 feat:M TASK
+f0caa73 feat: configuration product Schema model
+1c9a56c feat: upload files into server via multer
+e254723 feat:locals variable integration
+8729c2f feat:create product controller
+8d142df fix:siginup & MITTASK
+5494bf3 feat:develop logout process
+747270b fix:create check auth session api
+1aeb3e4 fix:create session login & singup
+f065556 feat:sessions
+98d316d feat:develop admin frontend pages and integrate header & footer
+9d1a98e feat:frontend related js,css img
+4ae19d8 fix:organize spa & ssr business logic
+6699e74 feat:fix login
+27d56d3 :feat:modify restoran login
+ec03910 feat:develop login process
+c86b6e0 :fix: showing of error
+38a1162 feat:ProcessSignup
+12abf97 feat:errors message standarts
+5270254 feat:develop member schema model
+c381c3e :feat:TRAIN H2-task
+0f21a20 fix:modify routing system and ctrollers
+aabbeba feat:creat routing and member controller
+c49bfbe :feat:H-task
+70a74ac feat:views
+62efec8 feat:connect mongoDB via mongoose
+80e8bf4 feat:train task file
+925aa66 Feat:integration of enviromental variables
+574be3b BRR:Train js Added
+d5ee7a7 BRR:Initial Setup

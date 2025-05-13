@@ -1,0 +1,236 @@
+<%- include('includes/header') %>
+
+<link rel="stylesheet" type="text/css" href="/css/home.css" />
+
+
+<body>
+  <div class="admin-layout">
+    <!-- Header -->
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="user-info">
+          <img
+            src="https://ui-avatars.com/api/?name=Admin&background=FD3B3B&color=fff"
+            alt="Profile" />
+          <div>
+            <h4>Admin User</h4>
+            <p>Administrator</p>
+          </div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <ul>
+          <li>
+            <a href="/admin/main" class="active">
+              <i class="fas fa-tachometer-alt"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="/admin/product/all">
+              <i class="fas fa-car"></i>
+              <span>Cars</span>
+            </a>
+          </li>
+          <li>
+            <a href="/admin/user/all">
+              <i class="fas fa-users"></i>
+              <span>Users</span>
+            </a>
+          </li>
+          <li>
+            <a href="/admin/bookings">
+              <i class="fas fa-calendar-check"></i>
+              <span>Bookings</span>
+            </a>
+          </li>
+          
+          
+          <li>
+            <a href="/admin/logout" onclick="return confirm('Do you want to logout?')">
+              <i class="fas fa-sign-out-alt"></i>
+              <span>Logout</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content with-sidebar">
+      <div class="page-header">
+        <h1>Dashboard</h1>
+        <div class="date-filter">
+          <button class="btn btn-outline btn-sm active">Today</button>
+          <button class="btn btn-outline btn-sm">Week</button>
+          <button class="btn btn-outline btn-sm">Month</button>
+          <button class="btn btn-outline btn-sm">Year</button>
+        </div>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-car"></i>
+          </div>
+          <div class="stat-content">
+            <h3>Total Cars</h3>
+            <p class="stat-value">24</p>
+            <p class="stat-change positive">+2 from last week</p>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <div class="stat-content">
+            <h3>Total Users</h3>
+            <p class="stat-value">156</p>
+            <p class="stat-change positive">+12 from last week</p>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-calendar-check"></i>
+          </div>
+          <div class="stat-content">
+            <h3>Active Rentals</h3>
+            <p class="stat-value">18</p>
+            <p class="stat-change negative">-3 from last week</p>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-dollar-sign"></i>
+          </div>
+          <div class="stat-content">
+            <h3>Revenue</h3>
+            <p class="stat-value">$12,450</p>
+            <p class="stat-change positive">+8% from last month</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="dashboard-row">
+        <div class="dashboard-card chart-card">
+          <div class="card-header">
+            <h3>Revenue Overview</h3>
+            <div class="card-actions">
+              <button class="btn-icon">
+                <i class="fas fa-ellipsis-v"></i>
+              </button>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="chart-container">
+              <canvas id="revenueChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <div class="dashboard-card">
+          <div class="card-header">
+            <h3>Popular Car Categories</h3>
+            <div class="card-actions">
+              <button class="btn-icon">
+                <i class="fas fa-ellipsis-v"></i>
+              </button>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="chart-container">
+              <canvas id="categoriesChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dashboard-row">
+        <div class="dashboard-card">
+          <div class="card-header">
+            <h3>Recent Bookings</h3>
+            <a href="/bookings" class="card-link">View All</a>
+          </div>
+          <div class="card-body">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>User</th>
+                  <th>Car</th>
+                  <th>From</th>
+                  <th>To</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>John Doe</td>
+                  <td>Tesla Model 3</td>
+                  <td>May 10, 2023</td>
+                  <td>May 15, 2023</td>
+                  <td><span class="status active">Active</span></td>
+                  <td class="actions">
+                    <button class="btn-icon"><i class="fas fa-eye"></i></button>
+                    <button class="btn-icon">
+                      <i class="fas fa-edit"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Jane Smith</td>
+                  <td>BMW X5</td>
+                  <td>May 8, 2023</td>
+                  <td>May 12, 2023</td>
+                  <td><span class="status active">Active</span></td>
+                  <td class="actions">
+                    <button class="btn-icon"><i class="fas fa-eye"></i></button>
+                    <button class="btn-icon">
+                      <i class="fas fa-edit"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Mike Johnson</td>
+                  <td>Audi A4</td>
+                  <td>May 5, 2023</td>
+                  <td>May 8, 2023</td>
+                  <td><span class="status completed">Completed</span></td>
+                  <td class="actions">
+                    <button class="btn-icon"><i class="fas fa-eye"></i></button>
+                    <button class="btn-icon">
+                      <i class="fas fa-edit"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Sarah Williams</td>
+                  <td>Mercedes C-Class</td>
+                  <td>May 3, 2023</td>
+                  <td>May 7, 2023</td>
+                  <td><span class="status completed">Completed</span></td>
+                  <td class="actions">
+                    <button class="btn-icon"><i class="fas fa-eye"></i></button>
+                    <button class="btn-icon">
+                      <i class="fas fa-edit"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script type="text/javascript" src="/js/home.js"></script>
+</body>
+
+<%- include('includes/footer') %>

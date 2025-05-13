@@ -1,0 +1,219 @@
+<%- include('includes/header') %>
+
+<link rel="stylesheet" type="text/css" href="/css/users.css" />
+
+<body>
+  
+  <div class="admin-layout">
+    <!-- Header -->
+   
+    
+    
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="user-info">
+          <img src="https://ui-avatars.com/api/?name=Admin&background=FD3B3B&color=fff" alt="Profile">
+          <div>
+            <h4>Admin User</h4>
+            <p>Administrator</p>
+          </div>
+        </div>
+      </div>
+      
+      <nav class="sidebar-nav">
+        <ul>
+          <li>
+            <a href="/admin/main">
+              <i class="fas fa-tachometer-alt"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="/admin/product/all">
+              <i class="fas fa-car"></i>
+              <span>Cars</span>
+            </a>
+          </li>
+          <li>
+            <a href="/admin/user/all" class="active">
+              <i class="fas fa-users"></i>
+              <span>Users</span>
+            </a>
+          </li>
+          <li>
+            <a href="/admin/bookings">
+              <i class="fas fa-calendar-check"></i>
+              <span>Bookings</span>
+            </a>
+          </li>
+         
+          <li>
+            <a href="/admin/logout" onclick="return confirm('Do you want to logout?')">
+              <i class="fas fa-sign-out-alt"></i>
+              <span>Logout</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+    
+    <!-- Main Content -->
+    <main class="main-content with-sidebar">
+      <div class="page-header">
+        <h1>Users Management</h1>
+        <button class="btn btn-primary">
+          <i class="fas fa-plus"></i> Add New User
+        </button>
+      </div>
+      
+      <div class="filter-bar">
+        <div class="search-container">
+          <i class="fas fa-search"></i>
+          <input type="text" placeholder="Search users...">
+        </div>
+        
+        <div class="filters">
+          <select class="filter-select">
+            <option value="">All Roles</option>
+            <option value="admin">Admin</option>
+            <option value="customer">Customer</option>
+            <option value="staff">Staff</option>
+          </select>
+          
+          <select class="filter-select">
+            <option value="">All Status</option>
+            <option value="active">Active</option>
+            <option value="inactive">Inactive</option>
+            <option value="blocked">Blocked</option>
+          </select>
+          
+          <button class="btn btn-outline btn-sm">
+            <i class="fas fa-filter"></i> More Filters
+          </button>
+        </div>
+      </div>
+      
+      <div class="table-responsive">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>
+                <input type="checkbox" class="select-all">
+              </th>
+              <th>User</th>
+              <th>Email</th>
+              <th>Role</th>
+              <th>Status</th>
+              <th>Joined Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <input type="checkbox" class="select-row">
+              </td>
+              <td class="user-cell">
+                <img src="https://ui-avatars.com/api/?name=John+Doe&background=FD3B3B&color=fff" alt="John Doe">
+                <span>John Doe</span>
+              </td>
+              <td>john.doe@example.com</td>
+              <td>Customer</td>
+              <td><span class="status active">Active</span></td>
+              <td>May 10, 2023</td>
+              <td class="actions">
+                <button class="btn-icon"><i class="fas fa-eye"></i></button>
+                <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                <button class="btn-icon danger"><i class="fas fa-trash"></i></button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input type="checkbox" class="select-row">
+              </td>
+              <td class="user-cell">
+                <img src="https://ui-avatars.com/api/?name=Jane+Smith&background=FD3B3B&color=fff" alt="Jane Smith">
+                <span>Jane Smith</span>
+              </td>
+              <td>jane.smith@example.com</td>
+              <td>Admin</td>
+              <td><span class="status active">Active</span></td>
+              <td>Apr 15, 2023</td>
+              <td class="actions">
+                <button class="btn-icon"><i class="fas fa-eye"></i></button>
+                <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                <button class="btn-icon danger"><i class="fas fa-trash"></i></button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input type="checkbox" class="select-row">
+              </td>
+              <td class="user-cell">
+                <img src="https://ui-avatars.com/api/?name=Mike+Johnson&background=FD3B3B&color=fff" alt="Mike Johnson">
+                <span>Mike Johnson</span>
+              </td>
+              <td>mike.johnson@example.com</td>
+              <td>Customer</td>
+              <td><span class="status inactive">Inactive</span></td>
+              <td>Mar 22, 2023</td>
+              <td class="actions">
+                <button class="btn-icon"><i class="fas fa-eye"></i></button>
+                <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                <button class="btn-icon danger"><i class="fas fa-trash"></i></button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input type="checkbox" class="select-row">
+              </td>
+              <td class="user-cell">
+                <img src="https://ui-avatars.com/api/?name=Sarah+Williams&background=FD3B3B&color=fff" alt="Sarah Williams">
+                <span>Sarah Williams</span>
+              </td>
+              <td>sarah.williams@example.com</td>
+              <td>Staff</td>
+              <td><span class="status active">Active</span></td>
+              <td>Feb 18, 2023</td>
+              <td class="actions">
+                <button class="btn-icon"><i class="fas fa-eye"></i></button>
+                <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                <button class="btn-icon danger"><i class="fas fa-trash"></i></button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input type="checkbox" class="select-row">
+              </td>
+              <td class="user-cell">
+                <img src="https://ui-avatars.com/api/?name=David+Brown&background=FD3B3B&color=fff" alt="David Brown">
+                <span>David Brown</span>
+              </td>
+              <td>david.brown@example.com</td>
+              <td>Customer</td>
+              <td><span class="status blocked">Blocked</span></td>
+              <td>Jan 05, 2023</td>
+              <td class="actions">
+                <button class="btn-icon"><i class="fas fa-eye"></i></button>
+                <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                <button class="btn-icon danger"><i class="fas fa-trash"></i></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <div class="pagination">
+        <button class="pagination-btn"><i class="fas fa-chevron-left"></i></button>
+        <button class="pagination-btn active">1</button>
+        <button class="pagination-btn">2</button>
+        <button class="pagination-btn">3</button>
+        <button class="pagination-btn"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </main>
+  </div>
+  <script type="text/javascript" src="/js/users.js"></script>
+</body>
+
+<%- include('includes/footer') %>
