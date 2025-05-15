@@ -34,11 +34,13 @@ routerAdmin.post(
   makeUploader("products").array("productImages", 5),
   productController.createNewProduct
 );
-routerAdmin.post(
-  "/product/:id",
-  adminController.verifyStore,
-  productController.updateChoosenProduct
-);
+routerAdmin
+  .get("/product/:id", productController.getChoosenProduct)
+  .post(
+    "/product/:id",
+    adminController.verifyStore,
+    productController.updateChoosenProduct
+  );
 
 /**  User    **/
 
@@ -53,10 +55,6 @@ routerAdmin.post(
   adminController.updateChoosenUser
 );
 
-routerAdmin.get(
-  "/main",
-  adminController.verifyStore,
-  adminController.getMain
-);
+routerAdmin.get("/main", adminController.verifyStore, adminController.getMain);
 
 export default routerAdmin;

@@ -51,26 +51,6 @@ productController.getProduct = async (req: ExtendedRequest, res: Response) => {
 };
 
 /**   SSR  **/
-// productController.getAllProducts = async (req: Request, res: Response) => {
-//   try {
-//     const inquiry = {
-//       page: parseInt(req.query.page as string) || 1,
-//       limit: parseInt(req.query.limit as string) || 3,
-//       productType: req.query.productType as any,
-//       search: req.query.search as string,
-//     };
-
-//     console.log("getAllProducts");
-//     const data = await productService.getAllProducts(inquiry);
-
-//     res.render("products", { products: data });
-//   } catch (err) {
-//     console.log("Error , getAllProducts", err);
-//     if (err instanceof Errors) res.status(err.code).json(err);
-//     else res.status(Errors.standard.code).json(Errors.standard);
-//     // res.json({err});
-//   }
-// };
 
 productController.getAllProducts = async (req: Request, res: Response) => {
   try {
@@ -86,7 +66,7 @@ productController.getAllProducts = async (req: Request, res: Response) => {
     const data = await productService.getAllProducts(inquiry);
 
     res.render("products", {
-      products: data.products, // если у вас объект с products и totalPages
+      products: data.products,
       page: inquiry.page,
       totalPages: data.totalPages || 1,
       type: inquiry.productType || "",
@@ -100,6 +80,19 @@ productController.getAllProducts = async (req: Request, res: Response) => {
   }
 };
 
+productController.getChoosenProduct = async (req: Request, res: Response) => {
+  try {
+    console.log("getChoosenProduct");
+    const { id } = req.params;
+
+    const result = await productService.getChoosenProduct(id);
+    res.status(HttpCode.OK).json({ data: result });
+  } catch (err) {
+    console.log("Error, getChoosenProduct:", err);
+    if (err instanceof Errors) res.status(err.code).json(err);
+    else res.status(Errors.standard.code).json(Errors.standard);
+  }
+};
 productController.createNewProduct = async (
   req: AdminRequest,
   res: Response

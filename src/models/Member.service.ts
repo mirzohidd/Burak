@@ -4,6 +4,7 @@ import {
   Member,
   MemberInput,
   MemberUpdateInput,
+  UserInquiry,
 } from "../libs/types/member";
 import Errors, { HttpCode, Message } from "../libs/Error";
 import { MemberStatus, MemberType } from "../libs/enums/member.enum";
@@ -158,18 +159,35 @@ class MemberService {
 
     return await this.memberModel.findById(member._id).exec();
   }
-  public async getUsers(): Promise<Member[]> {
-    const result = await this.memberModel
-      .find({ memberType: MemberType.USER })
-      .exec();
+  public async getUsers(
+    inquiry: UserInquiry
+  ): Promise<{ members: Member[]; totalPages: number }> {
+    const match: any = {};
+    if (inquiry.memberStatus) match.memberStatus = inquiry.memberStatus;
+    if (inquiry.search)
+      match.memberName = { $regex: new RegExp(inquiry.search, "i") };
+
+    const totalCount = await this.memberModel.countDocuments(match);
+
+    const result = await this.memberModel.aggregate([
+      { $match: match },
+      { $sort: { memerName: 1 } },
+      { $skip: (inquiry.page - 1) * inquiry.limit },
+      { $limit: inquiry.limit },
+    ]);
+
     if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
-    return result;
+
+    const totalPages = Math.ceil(totalCount / inquiry.limit);
+
+    return { members: result, totalPages };
   }
   public async updateChoosenUser(input: MemberUpdateInput) {
     input._id = shapeIntoMongooseObjectId(input._id);
     const result = await this.memberModel
       .findByIdAndUpdate({ _id: input._id }, input, { new: true })
       .exec();
+    
     if (!result) throw new Errors(HttpCode.NOT_MODIFIED, Message.UPDATE_FAILED);
     return result;
   }

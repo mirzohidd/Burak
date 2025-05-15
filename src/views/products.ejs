@@ -106,7 +106,7 @@
       <div class="cars-grid">
         <% products.forEach(product => { %>
           <div class="car-card">
-            <div class="car-status <%= product.productStatus.toLowerCase() %>">
+            <div class="car-status">
               <%= product.productStatus %>
             </div>
       
@@ -125,17 +125,14 @@
             </div>
       
             <div class="car-actions">
-              <a href="/product/<%= product._id %>" class="btn btn-sm btn-outline">
-                <i class="fas fa-eye"></i> View
-              </a>
-              <a href="/product/<%= product._id %>/edit" class="btn btn-sm btn-outline">
+              <a href="#" id="<%= product._id %>" class="btn btn-sm btn-outline button-update-modal">
                 <i class="fas fa-edit"></i> Edit
               </a>
-              <form action="/product/<%= product._id %>?_method=DELETE" method="POST" style="display:inline;">
-                <button type="submit" class="btn btn-sm btn-outline danger">
+              
+                <a href=""  class="btn btn-sm btn-outline danger button-delete-modal" id="<%= product._id %>">
                   <i class="fas fa-trash"></i> Delete
-                </button>
-              </form>
+                </a>
+             
             </div>
           </div>
         <% }) %>
@@ -159,7 +156,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h3 id="modal-title">Add New Car</h3>
-        <button class="modal-close add-car-toggler">&times;</button>
+        <a href="#" class="modal-close add-car-toggler">&times;</a>
       </div>
       <div class="modal-body">
         <form
@@ -243,11 +240,28 @@
                 placeholder="e.g. 120.00" />
             </div>
 
+            <div class="form-group">
+              <label for="car-status-update">Product Status</label>
+              <select
+                id="car-status-update"
+                name="productStatus"
+                class="product-status"
+                required
+              >
+                <option value="PAUSE">PAUSE</option>
+                <option value="AVAILABLE">AVAILABLE</option>
+                <option value="RENTED">RENTED</option>
+                <option value="MAINTENANCE">MAINTENANCE</option>
+                <option value="DELETE">DELETE</option>
+              </select>
+            </div>
+            
+            
             <input
               name="productStatus"
               value="PAUSE"
               class="product-status"
-              hidden />
+               />
 
             <div class="form-group">
               <label for="car-status">Product Model</label>
@@ -327,6 +341,179 @@
       </div>
     </div>
   </div>
+
+  <div class="modal update-modal" id="car-modal-update">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modal-title-update">Update Car</h3>
+        <a href="#" class="modal-close">&times;</a>
+      </div>
+      <div class="modal-body">
+        <form
+          id=""
+          
+          enctype="multipart/form-data"
+        >
+          <input type="hidden" id="car-id-update" name="id" />
+  
+          <div class="form-row">
+            <div class="form-group">
+              <label for="car-name-update">Car Name</label>
+              <input
+                type="text"
+                id="car-name-update"
+                name="productName"
+                class="product-name"
+                required
+                placeholder="e.g. Tesla Model 3"
+              />
+            </div>
+  
+            <div class="form-group">
+              <label for="car-category-update">Category</label>
+              <select id="car-category-update" name="productType" required>
+                <option value="HATCHBACK">HATCHBACK</option>
+                <option value="SEDAN">SEDAN</option>
+                <option value="SUV">SUV</option>
+              </select>
+            </div>
+          </div>
+  
+          <div class="form-row">
+            <div class="form-group">
+              <label for="car-year-update">Year</label>
+              <input
+                type="number"
+                id="car-year-update"
+                name="productYear"
+                required
+                min="2000"
+                max="2030"
+                placeholder="e.g. 2023"
+              />
+            </div>
+  
+            <div class="form-group">
+              <label for="car-fuel-update">Fuel Type</label>
+              <select id="car-fuel-update" name="productFuel" required>
+                <option value="PETROL">Petrol</option>
+                <option value="DIESEL">Diesel</option>
+                <option value="HYBRID">Hybrid</option>
+              </select>
+            </div>
+  
+            <div class="form-group">
+              <label for="car-transmission-update">Transmission</label>
+              <select id="car-transmission-update" name="productTransmission" required>
+                <option value="AUTOMATIC">Automatic</option>
+                <option value="MANUAL">Manual</option>
+              </select>
+            </div>
+          </div>
+  
+          <div class="form-row">
+            <div class="form-group">
+              <label for="car-price-update">Price per Day ($)</label>
+              <input
+                type="number"
+                id="car-price-update"
+                name="productPrice"
+                required
+                min="0"
+                step="0.01"
+                placeholder="e.g. 120.00"
+              />
+            </div>
+  
+            <input
+              name="productStatus"
+              value="PAUSE"
+              class="product-status"
+              hidden
+            />
+  
+            <div class="form-group">
+              <label for="car-status-update">Product Model</label>
+              <select id="car-status-update" name="productMarka" required>
+                <option value="AUDI">AUDI</option>
+                <option value="TOYOTA">Toyota</option>
+                <option value="BMW">BMW</option>
+                <option value="MERCEDENS">MERCEDENS-BENZ</option>
+              </select>
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <label for="car-description-update">Description</label>
+            <textarea
+              id="car-description-update"
+              name="description"
+              rows="3"
+              placeholder="Enter car description"
+            ></textarea>
+          </div>
+  
+          <div class="form-group">
+            <label for="car-image-update">Car Image</label>
+            <div class="file-input-container">
+              <img src="/img/upload.svg" class="1" id="image-section-1-update" />
+              <input
+                type="file"
+                id="car-image-1-update"
+                name="productImages"
+                accept="image/*"
+                onchange="previewFileHandler(this, 1)"
+                class="image-one"
+              />
+              <label for="car-image-1-update" class="file-input-label">
+                <i class="fas fa-upload"></i> Choose Image
+              </label>
+              <span class="file-name">No file chosen</span>
+            </div>
+            <div class="file-input-container">
+              <img src="/img/upload.svg" class="2" id="image-section-2-update" />
+              <input
+                type="file"
+                id="car-image-2-update"
+                name="productImages"
+                accept="image/*"
+                onchange="previewFileHandler(this, 2)"
+                class="image-two"
+              />
+              <label for="car-image-2-update" class="file-input-label">
+                <i class="fas fa-upload"></i> Choose Image 2
+              </label>
+              <span class="file-name">No file chosen</span>
+            </div>
+            <div class="file-input-container">
+              <img src="/img/upload.svg" class="3" id="image-section-3-update" />
+              <input
+                type="file"
+                id="car-image-3-update"
+                name="productImages"
+                accept="image/*"
+                onchange="previewFileHandler(this, 3)"
+                class="image-three"
+              />
+              <label for="car-image-3-update" class="file-input-label">
+                <i class="fas fa-upload"></i> Choose Image 3
+              </label>
+              <span class="file-name">No file chosen</span>
+            </div>
+          </div>
+  
+          <div class="form-actions">
+            <a href="#"  class="btn btn-outline" data-dismiss="modal">
+              Cancel
+            </a>
+            <a href="#"  class="btn btn-primary save-update-car">Save Car</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <script type="text/javascript" src="/js/products.js"></script>

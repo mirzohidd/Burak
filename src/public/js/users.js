@@ -18,7 +18,7 @@ $(function () {
         if (result.data) {
           console.log("User updated");
 
-          $(".member-status").blur();
+          location.reload(true);
         } else {
           alert("User update failed !");
         }

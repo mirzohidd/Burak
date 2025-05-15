@@ -109,29 +109,6 @@ class ProductService {
 
     return result;
   }
-  // public async getAllProducts(
-  //   inquiry: ProductInquiryAdmin
-  // ): Promise<Product[]> {
-  //   // string = ObjectId
-  //   const match: any = {};
-  //   if (inquiry.productType) match.productType = inquiry.productType;
-
-  //   if (inquiry.search)
-  //     match.productName = { $regex: new RegExp(inquiry.search, "i") };
-
-  //   const result = await this.productModel.aggregate([
-  //     { $match: match },
-  //     { $sort: { productName: -1 } },
-  //     { $skip: (inquiry.page * 1 - 1) * inquiry.limit },
-  //     { $limit: inquiry.limit * 1 },
-  //   ]);
-
-  //   // const result = await this.productModel.find().exec();
-
-  //   if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
-
-  //   return result;
-  // }
   public async getAllProducts(
     inquiry: ProductInquiryAdmin
   ): Promise<{ products: Product[]; totalPages: number }> {
@@ -145,7 +122,7 @@ class ProductService {
 
     const result = await this.productModel.aggregate([
       { $match: match },
-      { $sort: { productPPrice: -1 } },
+      { $sort: { createdAt: 1 } },
       { $skip: (inquiry.page - 1) * inquiry.limit },
       { $limit: inquiry.limit },
     ]);
@@ -155,6 +132,13 @@ class ProductService {
     const totalPages = Math.ceil(totalCount / inquiry.limit);
 
     return { products: result, totalPages };
+  }
+  public async getChoosenProduct(id: string): Promise<Product> {
+    const result = await this.productModel.findOne({ _id: id }).exec();
+
+    if (!result) throw new Errors(HttpCode.NOT_MODIFIED, Message.NO_DATA_FOUND);
+
+    return result;
   }
 }
 

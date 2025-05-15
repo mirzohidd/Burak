@@ -1,4 +1,4 @@
-import { MemberType } from "../libs/enums/member.enum";
+import { MemberStatus, MemberType } from "../libs/enums/member.enum";
 import { Request, Response, NextFunction, json } from "express";
 import { T } from "../libs/types/common";
 import MemberService from "../models/Member.service";
@@ -110,10 +110,25 @@ adminController.logout = async (req: AdminRequest, res: Response) => {
 };
 adminController.getUsers = async (req: Request, res: Response) => {
   try {
-    console.log("getUsers");
-    const result = await memberService.getUsers();
+    const inquiry = {
+      page: parseInt(req.query.page as string) || 1,
+      limit: parseInt(req.query.limit as string) || 7,
+      memberStatus: req.query.memberStatus as any,
+      search: (req.query.search as string) || "",
+    };
 
-    res.render("users", { user: result });
+    console.log("getUsers");
+    const result = await memberService.getUsers(inquiry);
+
+    // res.render("users", { user: result });
+
+    res.render("users", {
+      users: result.members, 
+      page: inquiry.page,
+      totalPages: result.totalPages || 1,
+      status: inquiry.memberStatus || "",
+      search: inquiry.search || "",
+    });
   } catch (err) {
     console.log("Error , getUsers", err);
     res.redirect("/admin");
