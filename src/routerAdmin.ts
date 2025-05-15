@@ -35,12 +35,18 @@ routerAdmin.post(
   productController.createNewProduct
 );
 routerAdmin
-  .get("/product/:id", productController.getChoosenProduct)
+  .get("/product/:id",adminController.verifyStore, productController.getChoosenProduct)
   .post(
     "/product/:id",
     adminController.verifyStore,
     productController.updateChoosenProduct
   );
+
+routerAdmin.post(
+  "/product/delete/:id",
+  adminController.verifyStore,
+  productController.deleteChoosenProduct
+);
 
 /**  User    **/
 

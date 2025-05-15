@@ -1,19 +1,30 @@
 console.log("Products frontend javascript file");
 $(function () {
-  $(".save-update-car").on("click",
-    async function (e) {
-      const id = e.target.id;
+  $(".save-update-car").on("click", async function (e) {
+    const id = e.target.id;
 
-      const productName = $("#car-name-update").val();
-      const productType = $("#car-category-update").val();
-      const productYear = $("#car-year-update").val();
-      const productFuel = $("#car-fuel-update").val();
-      const productTransmission = $("#car-transmission-update").val();
-      const productPrice = $("#car-price-update").val();
-      const productMarka = $("#car-status-update").val();
-      const description = $("#car-description-update").val();
-      const productStatus = $("#car-status-update").val();
-      const data = {
+    const productName = $("#car-name-update").val();
+    const productType = $("#car-category-update").val();
+    const productYear = $("#car-year-update").val();
+    const productFuel = $("#car-fuel-update").val();
+    const productTransmission = $("#car-transmission-update").val();
+    const productPrice = $("#car-price-update").val();
+    const productMarka = $("#car-status-update").val();
+    const description = $("#car-description-update").val();
+    const productStatus = $("#car-status-update").val();
+    const data = {
+      productName: productName,
+      productType: productType,
+      productYear: productYear,
+      productFuel: productFuel,
+      productTransmission: productTransmission,
+      productPrice: productPrice,
+      productMarka: productMarka,
+      description: description,
+      productStatus: productStatus,
+    };
+    try {
+      const response = await axios.post(`/admin/product/${id}`, {
         productName: productName,
         productType: productType,
         productYear: productYear,
@@ -23,32 +34,17 @@ $(function () {
         productMarka: productMarka,
         description: description,
         productStatus: productStatus,
-      };
-      try {
-        const response = await axios.post(`/admin/product/${id}`, {
-          productName: productName,
-          productType: productType,
-          productYear: productYear,
-          productFuel: productFuel,
-          productTransmission: productTransmission,
-          productPrice: productPrice,
-          productMarka: productMarka,
-          description: description,
-          productStatus: productStatus,
-        });
-        const result = response.data;
-        if (result.data) {
-          location.reload(true);
-        } else {
-         
-        }
-      } catch (err) {
-        console.log(err);
-        alert("Product update failed");
+      });
+      const result = response.data;
+      if (result.data) {
+        location.reload(true);
+      } else {
       }
-    },
-   
-  );
+    } catch (err) {
+      console.log(err);
+      alert("Product update failed");
+    }
+  });
 
   $(".add-car-toggler").on("click", function (e) {
     $("#car-modal").toggleClass("show");
@@ -101,14 +97,23 @@ $(function () {
           console.log("Get Product failed !");
         }
       })
-      .catch(
-        (err) => {
-          console.log(err);
+      .catch((err) => {
+        console.log(err);
 
-          alert("Product update failed !");
-        },
+        alert("Product update failed !");
+      });
+  });
+  $(".button-delete-modal").on("click", function (e) {
+    const id = e.target.id;
+    axios
+      .post(`/admin/product/delete/${id}`)
+      .then((response) => {
+        console.log("Product deleted successfully");
       
-      );
+      })
+      .catch((error) => {
+        console.error("Delete failed:", error);
+      });
   });
 });
 function validateForm() {

@@ -140,6 +140,10 @@ class ProductService {
 
     return result;
   }
+  public async deleteChoosenProduct(id: string): Promise<null> {
+    const deletedProduct =  await this.productModel.findOneAndDelete({ _id: id });
+    return deletedProduct
+  }
 }
 
 export default ProductService;
