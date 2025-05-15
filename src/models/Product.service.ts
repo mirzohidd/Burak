@@ -144,6 +144,10 @@ class ProductService {
     const deletedProduct =  await this.productModel.findOneAndDelete({ _id: id });
     return deletedProduct
   }
+
+  public async countProducts(filter: any = {}): Promise<number> {
+    return await this.productModel.countDocuments(filter);
+  }
 }
 
 export default ProductService;

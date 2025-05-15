@@ -4,26 +4,25 @@ import { T } from "../libs/types/common";
 import MemberService from "../models/Member.service";
 import { AdminRequest, LoginInput, MemberInput } from "../libs/types/member";
 import Errors, { HttpCode, Message } from "../libs/Error";
+import ProductService from "../models/Product.service";
 
 const adminController: T = {};
 const memberService = new MemberService();
-
-adminController.getMain = (req: Request, res: Response) => {
+const productService = new ProductService();
+adminController.getMain = async (req: Request, res: Response) => {
   try {
-    res.render("home");
+    const productCount = await productService.countProducts();
+    const userCount = await memberService.countUsers();
+
+    res.render("home", {
+      productCount,
+      userCount,
+    });
   } catch (err) {
     console.log("Error , go Home", err);
   }
 };
-adminController.goHome = (req: Request, res: Response) => {
-  try {
-    console.log("gohome");
 
-    res.render("home");
-  } catch (err) {
-    console.log("Error , go Home", err);
-  }
-};
 adminController.getSignup = (req: Request, res: Response) => {
   try {
     res.render("signup");
@@ -41,10 +40,7 @@ adminController.getLogin = (req: Request, res: Response) => {
   }
 };
 
-adminController.processSignup = async (
-  req: AdminRequest,
-  res: Response
-) => {
+adminController.processSignup = async (req: AdminRequest, res: Response) => {
   try {
     console.log("proccesSignup");
     const file = req.file;
@@ -71,10 +67,7 @@ adminController.processSignup = async (
   }
 };
 
-adminController.processLogin = async (
-  req: AdminRequest,
-  res: Response
-) => {
+adminController.processLogin = async (req: AdminRequest, res: Response) => {
   try {
     console.log("proccesLogin");
 
@@ -86,7 +79,7 @@ adminController.processLogin = async (
     // TODO SESSIONS
     req.session.member = result;
     req.session.save(function () {
-      res.redirect("/admin/main");
+      res.redirect("/admin/");
     });
   } catch (err) {
     console.log("Error , proccesLogin", err);
@@ -123,7 +116,7 @@ adminController.getUsers = async (req: Request, res: Response) => {
     // res.render("users", { user: result });
 
     res.render("users", {
-      users: result.members, 
+      users: result.members,
       page: inquiry.page,
       totalPages: result.totalPages || 1,
       status: inquiry.memberStatus || "",
@@ -134,10 +127,7 @@ adminController.getUsers = async (req: Request, res: Response) => {
     res.redirect("/admin");
   }
 };
-adminController.updateChoosenUser = async (
-  req: Request,
-  res: Response
-) => {
+adminController.updateChoosenUser = async (req: Request, res: Response) => {
   try {
     console.log("updateChoosenUser");
     const result = await memberService.updateChoosenUser(req.body);
@@ -148,10 +138,7 @@ adminController.updateChoosenUser = async (
     else res.status(Errors.standard.code).json(Errors.standard);
   }
 };
-adminController.checkAuthSession = async (
-  req: AdminRequest,
-  res: Response
-) => {
+adminController.checkAuthSession = async (req: AdminRequest, res: Response) => {
   try {
     console.log("checkAuthSession");
     if (req.session?.member)

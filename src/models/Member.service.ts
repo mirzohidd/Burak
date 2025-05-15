@@ -191,6 +191,10 @@ class MemberService {
     if (!result) throw new Errors(HttpCode.NOT_MODIFIED, Message.UPDATE_FAILED);
     return result;
   }
+
+  public async countUsers(filter: any = {}): Promise<number> {
+    return await this.memberModel.countDocuments(filter);
+  }
 }
 
 export default MemberService;

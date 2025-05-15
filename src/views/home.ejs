@@ -2,7 +2,6 @@
 
 <link rel="stylesheet" type="text/css" href="/css/home.css" />
 
-
 <body>
   <div class="admin-layout">
     <!-- Header -->
@@ -24,7 +23,7 @@
       <nav class="sidebar-nav">
         <ul>
           <li>
-            <a href="/admin/main" class="active">
+            <a href="/admin/" class="active">
               <i class="fas fa-tachometer-alt"></i>
               <span>Dashboard</span>
             </a>
@@ -47,10 +46,11 @@
               <span>Bookings</span>
             </a>
           </li>
-          
-          
+
           <li>
-            <a href="/admin/logout" onclick="return confirm('Do you want to logout?')">
+            <a
+              href="/admin/logout"
+              onclick="return confirm('Do you want to logout?')">
               <i class="fas fa-sign-out-alt"></i>
               <span>Logout</span>
             </a>
@@ -78,7 +78,8 @@
           </div>
           <div class="stat-content">
             <h3>Total Cars</h3>
-            <p class="stat-value">24</p>
+
+            <p class="stat-value"><%= productCount%></p>
             <p class="stat-change positive">+2 from last week</p>
           </div>
         </div>
@@ -89,7 +90,7 @@
           </div>
           <div class="stat-content">
             <h3>Total Users</h3>
-            <p class="stat-value">156</p>
+            <p class="stat-value"><%= userCount%></p>
             <p class="stat-change positive">+12 from last week</p>
           </div>
         </div>

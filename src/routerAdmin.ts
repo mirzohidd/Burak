@@ -5,7 +5,6 @@ import makeUploader from "./libs/utils/uploader";
 const routerAdmin = express.Router();
 
 /**  Store    **/
-routerAdmin.get("/", adminController.goHome);
 
 routerAdmin
   .get("/login", adminController.getLogin)
@@ -35,7 +34,11 @@ routerAdmin.post(
   productController.createNewProduct
 );
 routerAdmin
-  .get("/product/:id",adminController.verifyStore, productController.getChoosenProduct)
+  .get(
+    "/product/:id",
+    adminController.verifyStore,
+    productController.getChoosenProduct
+  )
   .post(
     "/product/:id",
     adminController.verifyStore,
@@ -61,6 +64,6 @@ routerAdmin.post(
   adminController.updateChoosenUser
 );
 
-routerAdmin.get("/main", adminController.verifyStore, adminController.getMain);
+routerAdmin.get("/", adminController.verifyStore, adminController.getMain);
 
 export default routerAdmin;
