@@ -37,7 +37,6 @@ export interface OrderInquiry {
   orderStatus: OrderStatus;
 }
 
-
 export interface OrderUpdateInput{
   orderId:string;
   orderStatus:OrderStatus;

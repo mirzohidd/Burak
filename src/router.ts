@@ -3,7 +3,7 @@ import express, { Request, Response } from "express";
 import memberController from "./controllers/member.controller";
 import uploader from "./libs/utils/uploader";
 import productController from "./controllers/product.controller";
-import orderController from "./controllers/order.controller";
+import orderController from "./controllers/booking.controller";
 const router = express.Router();
 
 /** Member **/
